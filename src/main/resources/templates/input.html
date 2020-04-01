@@ -2,17 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert New or Edit Contact</title>
+<title>Insert New or Edit Employee</title>
 </head>
 <body>
-<form th:object="${newContact}" th:action="@{/update/{id}(id=${newContact.id})}" method=POST>
+<form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method=POST>
 Name: <input name="name" size="20" th:field="*{name}"><br />
 Relationship: <input name="relationship" size="20" th:field="*{relationship}"><br />
 
 
 <input name="Submit" type="submit" value="submit" />
 </form>
-<a href="../viewAll">View All Contacts</a>
+<a href="../viewAll">View All Employees</a>
 
 </body>
 </html>

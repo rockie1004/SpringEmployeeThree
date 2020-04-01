@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-public class Contact {
+public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -18,24 +18,24 @@ public class Contact {
 	private String relationship;
 
 	
-	public Contact() {
+	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub
 		this.relationship = "spouse";
 	}
 	
-	public Contact(String name) {
+	public Employee(String name) {
 		super();
 		this.name = name;
 	}
 
-	public Contact(String name, String phone, String relationship) {
+	public Employee(String name, String phone, String relationship) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.relationship = relationship;
 	}
-	public Contact(long id, String name, String phone, String relationship) {
+	public Employee(long id, String name, String phone, String relationship) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -69,7 +69,7 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", name=" + name + ", phone=" + phone + ", relationship=" + relationship+"]";
+		return "Employee [id=" + id + ", name=" + name + ", phone=" + phone + ", relationship=" + relationship+"]";
 	}
 
 	

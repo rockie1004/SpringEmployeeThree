@@ -3,14 +3,14 @@ package dmacc.controller;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import dmacc.beans.Contact;
+import dmacc.beans.Employee;
 
 @Configuration
 public class BeanConfiguration {
 	
 	@Bean
-	public Contact contact() {
-		Contact bean = new Contact("Eric Carle");
+	public Employee employee() {
+		Employee bean = new Employee("Eric Carle");
 		return bean;
 	}
 
