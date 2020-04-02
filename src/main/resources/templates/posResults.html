@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Positions</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentPosition: ${Positions}">
+	<td th:text="${currentPosition.position_id}" />
+	<td th:text="${currentPosition.title}" />
+
+	<td><a th:href="@{/editPosition/{id}(id=${currentPosition.position_id})}">Edit</a></td>
+	<td><a th:href="@{/deletePosition/{id}(id=${currentPosition.position_id})}">Delete</a></td>
+	</tr>
+</table>
+</form>
+<a href = "../viewAll">View all Employees</a><br/>
+<a href="../inputEmployee">Add a new Employee</a><br/>
+<a href = "../viewAllPositions">View all Positions</a><br/>
+<a href="../inputPosition">Add a new Position</a><br/>
+</body>
+</html>

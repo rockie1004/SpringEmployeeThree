@@ -8,13 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import dmacc.beans.Employee;
+import dmacc.beans.Position;
 import dmacc.repository.EmployeeRepository;
+import dmacc.repository.PositionRepository;
 
 @Controller
 public class WebController {
 	@Autowired
 	EmployeeRepository repo;
-
+	@Autowired
+	PositionRepository posRepo;
+	@GetMapping({ "/" })
+	public String index() {
+		return "index.html";
+	}
 	@GetMapping({ "/viewAll" })
 	public String viewAllEmployees(Model model) {
 		if(repo.findAll().isEmpty()) {
@@ -52,4 +59,61 @@ public class WebController {
 	    repo.delete(c);
 	    return viewAllEmployees(model);
 	}
+	
+	/////////////////////////////////////////////
+	////////////////////////////////////////////
+	@GetMapping({ "/viewAllPositions" })
+	public String viewAllPositions(Model model) {
+		if(posRepo.findAll().isEmpty()) {
+			return addNewPosition(model);
+		}
+		
+		model.addAttribute("Positions", posRepo.findAll());
+		return "posResults";
+	}
+
+	@GetMapping("/inputPosition")
+	public String addNewPosition(Model model) {
+		Position p = new Position();
+		model.addAttribute("newPosition", p);
+		return "posInput";
+	}
+
+	@GetMapping("/editPosition/{id}")
+	public String showUpdatePosition(@PathVariable("id") long id, Model model) {
+		Position p = posRepo.findById(id).orElse(null);
+		System.out.println("ITEM TO EDIT: " + p.toString());
+		model.addAttribute("newPosition", p);
+		return "posInput";
+	}
+
+	@PostMapping("/updatePosition/{id}")
+	public String revisePosition(Position p, Model model) {
+		posRepo.save(p);
+		return viewAllPositions(model);
+	}
+	
+	@GetMapping("/deletePosition/{id}")
+	public String deletePositionUser(@PathVariable("id") long id, Model model) {
+		Position p = posRepo.findById(id).orElse(null);
+	    posRepo.delete(p);
+	    return viewAllPositions(model);
+	}
+	
+	////////////
+	/*
+	
+	@GetMapping("/connectPositionEmployee1/{empId}")
+	public String connectPositionEmployee1(@PathVariable("empId") long id, Model modelEmployee) {
+		Employee e = repo.findById(id).orElse(null);
+	    repo.delete(p);
+	    return "posSelect";
+	}
+	@GetMapping("/connectPositionEmployee1/{empId}")
+	public String showUpdateEmployee(@PathVariable("id") long id, Model model) {
+		Employee c = repo.findById(id).orElse(null);
+		System.out.println("ITEM TO EDIT: " + c.toString());
+		model.addAttribute("newEmployee", c);
+		return "input";
+		*/
 }

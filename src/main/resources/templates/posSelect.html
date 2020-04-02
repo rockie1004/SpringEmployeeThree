@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Positions</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentPosition: ${Positions}">
+	<td th:text="${currentPosition.position_id}" />
+	<td th:text="${currentPosition.title}" />
+
+	<td><a th:href="@{/selectPosition/{id}(id=${currentPosition.position_id})}">Select</a></td>
+	</tr>
+</table>
+</form>
+
+</body>
+</html>

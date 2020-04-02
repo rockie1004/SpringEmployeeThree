@@ -2,12 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert New or Edit Employee</title>
+<title>Insert New or Edit Position</title>
 </head>
 <body>
-<form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method=POST>
-First Name: <input name="firstName" size="20" th:field="*{firstName}"><br />
-Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
+<form th:object="${newPosition}" th:action="@{/updatePosition/{id}(id=${newPosition.position_id})}" method=POST>
+Position Title: <input name="title" size="20" th:field="*{title}"><br />
 <input name="Submit" type="submit" value="submit" />
 </form>
 <a href = "../viewAll">View all Employees</a><br/>
