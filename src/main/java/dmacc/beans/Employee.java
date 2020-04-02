@@ -17,10 +17,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	
-	//@ManyToOne(fetch = FetchType.EAGER)
-	//@JoinColumn(name = "position_id", insertable = true, updatable = true)
-	//private Position position;
-	
+
 	public Employee() {
 		super();
 	}
