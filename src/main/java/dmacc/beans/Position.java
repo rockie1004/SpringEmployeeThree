@@ -1,51 +1,48 @@
 package dmacc.beans;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Position {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long position_id;
 	private String title;
 	
+		
 	
 	public Position() {
 		super();}
-
 	/**
+	 * @param position_id
 	 * @param title
 	 */
-	public Position(String title) {
+	public Position(long position_id, String title) {
 		super();
+		this.position_id = position_id;
 		this.title = title;
 	}
 
+
+
 	/**
-	 * @return the id
+	 * @return the position_id
 	 */
-	public long getid() {
-		return id;
+	public long getPosition_id() {
+		return position_id;
 	}
 
 
 
 	/**
-	 * @param id the id to set
+	 * @param position_id the position_id to set
 	 */
-	public void setid(long id) {
-		this.id = id;
+	public void setPosition_id(long position_id) {
+		this.position_id = position_id;
 	}
 
 
@@ -68,9 +65,11 @@ public class Position {
 
 
 
+
+
 	@Override
 	public String toString() {
-		return "Position [title=" + title +"]";
+		return "Position [title=" + title + "]";
 	}
 
 }
