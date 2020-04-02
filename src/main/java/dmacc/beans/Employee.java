@@ -2,12 +2,12 @@ package dmacc.beans;
 
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Entity
 public class Employee {
@@ -17,10 +17,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	
-	//@ManyToOne(fetch = FetchType.EAGER)
-	//@JoinColumn(name = "position_id", insertable = true, updatable = true)
-	//private Position position;
-	
+
 	public Employee() {
 		super();
 	}
@@ -80,10 +77,8 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + firstName + " " + lastName+"]"; // , position = "+position.getTitle()+"]";
+		return "Employee [id=" + id + ", name=" + firstName + " " + lastName+"]"; // , job = "+job.getTitle()+"]";
 	}
 }
