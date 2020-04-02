@@ -8,14 +8,16 @@
 <form>
 <table>
 <tr th:each="currentEmployee: ${Employees}">
+	<td th:text="Entry" />
 	<td th:text="${currentEmployee.id}" />
-	<td th:text="${currentEmployee.name}" />
-	<td th:text="${currentEmployee.relationship}" />
+	<td th:text="${currentEmployee.firstName}" />
+	<td th:text="${currentEmployee.lastName}" />
+
 	<td><a th:href="@{/edit/{id}(id=${currentEmployee.id})}">Edit</a></td>
 	<td><a th:href="@{/delete/{id}(id=${currentEmployee.id})}">Delete</a></td>
 	</tr>
 </table>
 </form>
-<a href="../inputEmployee">Add a new Employee</a>
+<a href="../inputEmployee">Add a new employee</a>
 </body>
 </html>

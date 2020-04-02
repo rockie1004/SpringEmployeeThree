@@ -6,9 +6,8 @@
 </head>
 <body>
 <form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method=POST>
-Name: <input name="name" size="20" th:field="*{name}"><br />
-Relationship: <input name="relationship" size="20" th:field="*{relationship}"><br />
-
+First Name: <input name="firstName" size="20" th:field="*{firstName}"><br />
+Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
 
 <input name="Submit" type="submit" value="submit" />
 </form>

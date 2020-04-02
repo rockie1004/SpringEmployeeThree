@@ -2,75 +2,88 @@ package dmacc.beans;
 
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String name;
-	private String phone;
-	private String relationship;
-
+	private String firstName;
+	private String lastName;
+	
+	//@ManyToOne(fetch = FetchType.EAGER)
+	//@JoinColumn(name = "position_id", insertable = true, updatable = true)
+	//private Position position;
 	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
-		this.relationship = "spouse";
 	}
 	
-	public Employee(String name) {
+	public Employee(String firstName, String lastName) {
 		super();
-		this.name = name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
-
-	public Employee(String name, String phone, String relationship) {
-		super();
-		this.name = name;
-		this.phone = phone;
-		this.relationship = relationship;
-	}
-	public Employee(long id, String name, String phone, String relationship) {
+	public Employee(long id, String firstName, String lastName) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.relationship = relationship;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
+
+
+	/**
+	 * @return the id
+	 */
 	public long getId() {
 		return id;
 	}
+
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getPhone() {
-		return phone;
+
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getRelationship() {
-		return relationship;
-	}
-	public void setRelationship(String relationship) {
-		this.relationship = relationship;
-	}
+
+
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", phone=" + phone + ", relationship=" + relationship+"]";
+		return "Employee [id=" + id + ", name=" + firstName + " " + lastName+"]"; // , position = "+position.getTitle()+"]";
 	}
-
-	
 }

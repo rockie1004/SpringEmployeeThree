@@ -10,7 +10,7 @@ public class BeanConfiguration {
 	
 	@Bean
 	public Employee employee() {
-		Employee bean = new Employee("Eric Carle");
+		Employee bean = new Employee("Eric","Carle");
 		return bean;
 	}
 
