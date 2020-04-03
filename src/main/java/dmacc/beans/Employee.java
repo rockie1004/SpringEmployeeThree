@@ -21,19 +21,7 @@ public class Employee {
 	@JoinColumn(name="POSITION_ID")
 	private Position position;
 
-	/**
-	 * @return the position
-	 */
-	public Position getPosition() {
-		return position;
-	}
 
-	/**
-	 * @param position the position to set
-	 */
-	public void setPosition(Position position) {
-		this.position = position;
-	}
 
 	public Employee() {
 		super();
@@ -50,6 +38,13 @@ public class Employee {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	public Employee(String firstName, String lastName, Position position) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.position = position;
+	}
+
 
 
 	/**
@@ -93,9 +88,21 @@ public class Employee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	/**
+	 * @return the position
+	 */
+	public Position getPosition() {
+		return position;
+	}
 
+	/**
+	 * @param position the position to set
+	 */
+	public void setPosition(Position position) {
+		this.position = position;
+	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + firstName + " " + lastName+"]"; // , job = "+job.getTitle()+"]";
+		return "Employee [id=" + id + ", name=" + firstName + " " + lastName +", position = "+position.getTitle()+"]";
 	}
 }

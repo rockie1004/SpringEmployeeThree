@@ -18,6 +18,7 @@ public class WebController {
 	EmployeeRepository repo;
 	@Autowired
 	PositionRepository posRepo;
+	
 	@GetMapping({ "/" })
 	public String index() {
 		return "index.html";

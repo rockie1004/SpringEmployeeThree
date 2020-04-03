@@ -13,10 +13,22 @@ public class Position {
 	private long position_id;
 	private String title;
 	
-		
-	
 	public Position() {
 		super();}
+	/**
+	 * @param position_id
+	 */
+	public Position(long position_id) {
+		super();
+		this.position_id = position_id;
+	}
+	/**
+	 * @param title
+	 */
+	public Position( String title) {
+		super();
+		this.title = title;
+	}
 	/**
 	 * @param position_id
 	 * @param title
