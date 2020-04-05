@@ -14,6 +14,7 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private String badgeNum;
 	private String firstName;
 	private String lastName;
 	
@@ -22,6 +23,30 @@ public class Employee {
 		super();
 	}
 	
+	/**
+	 * @param id
+	 * @param badgeNum
+	 * @param firstName
+	 * @param lastName
+	 */
+	public Employee(long id, String badgeNum, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.badgeNum = badgeNum;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	/**
+	 * @param badgeNum
+	 * @param firstName
+	 * @param lastName
+	 */
+	public Employee(String badgeNum, String firstName, String lastName) {
+		super();
+		this.badgeNum = badgeNum;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	public Employee(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
@@ -48,6 +73,21 @@ public class Employee {
 	public void setId(long id) {
 		this.id = id;
 	}
+	/**
+	 * @return the badgeNum
+	 */
+	public String getBadgeNum() {
+		return badgeNum;
+	}
+
+	/**
+	 * @param badgeNum the badgeNum to set
+	 */
+	public void setBadgeNum(String badgeNum) {
+		this.badgeNum = badgeNum;
+	}
+
+
 
 	/**
 	 * @return the firstName

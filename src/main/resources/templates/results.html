@@ -9,6 +9,7 @@
 <table>
 <tr th:each="currentEmployee: ${Employees}">
 	<td th:text="${currentEmployee.id}" />
+		<td th:text="${currentEmployee.badgeNum}" />
 	<td th:text="${currentEmployee.firstName}" />
 	<td th:text="${currentEmployee.lastName}" />
 
