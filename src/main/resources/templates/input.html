@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<script>
+
+  function checkForm(form)
+  {
+
+    // validation fails if the input is blank
+    if(form.firstName.value == "") {
+      alert("Error: First Name is empty.");
+      form.firstName.focus();
+      return false;
+    }
+
+ 
+    // validation fails if the input is blank
+    if(form.lastName.value == "") {
+      alert("Error: Last Name is empty.");
+      form.lastName.focus();
+      return false;
+    }
+    // validation fails if the input is blank
+    if(form.badgeNum.value == "") {
+      alert("Error: Badge Number is empty.");
+      form.badgeNum.focus();
+      return false;
+    }
+    if(form.badgeNum.value.length != 4 || isNaN(form.badgeNum.value)) {
+        alert("Error: Badge Number must be 4 digits.");
+        form.badgeNum.focus();
+        return false;
+      }
+    // validation was successful
+    return true;
+  }
+
+</script>
 <head>
 <meta charset="UTF-8">
 <title>Insert New or Edit Employee</title>
 </head>
 <body>
-<form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method=POST>
-First Name: <input name="firstName" size="20" th:field="*{firstName}"><br />
-Last Name: <input name="lastName" size="20" th:field="*{lastName}"><br />
+<form th:object="${newEmployee}" th:action="@{/update/{id}(id=${newEmployee.id})}" method=POST onsubmit="return checkForm(this);">
+First Name: <input name="firstName" size="30" th:field="*{firstName}"><br />
+Last Name: <input name="lastName" size="30" th:field="*{lastName}"><br />
+Badge Number: <input name="badgeNum" size="30" th:field="*{badgeNum}"><br />
 
 <input name="Submit" type="submit" value="submit" />
 </form>
